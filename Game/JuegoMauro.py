@@ -66,6 +66,7 @@ class Player(pygame.sprite.Sprite):
  
     def update(self):
         hits = pygame.sprite.spritecollide(self ,platforms, False)
+
         if self.vel.y > 0:        
             if hits:
                 if self.pos.y < hits[0].rect.bottom:
@@ -74,8 +75,11 @@ class Player(pygame.sprite.Sprite):
                         self.score += 1          
                     self.pos.y = hits[0].rect.top +1
                     self.vel.y = 0
+                    # Para que la caja se mueva cuando estoy arriba de una plataforma.
+                    #if hits[0].moving:
+                    #    self.vel.x = (abs(hits[0].speed)+0.23)*hits[0].speed
+                        
                     self.jumping = False
- 
  
 class platform(pygame.sprite.Sprite):
     def __init__(self):
