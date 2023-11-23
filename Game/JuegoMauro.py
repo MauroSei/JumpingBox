@@ -76,8 +76,8 @@ class Player(pygame.sprite.Sprite):
                     self.pos.y = hits[0].rect.top +1
                     self.vel.y = 0
                     # Para que la caja se mueva cuando estoy arriba de una plataforma.
-                    #if hits[0].moving:
-                    #    self.vel.x = (abs(hits[0].speed)+0.23)*hits[0].speed
+                    if hits[0].moving:
+                        self.vel.x = (abs(hits[0].speed)+0.23)*hits[0].speed
                         
                     self.jumping = False
  
