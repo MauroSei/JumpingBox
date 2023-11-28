@@ -5,6 +5,7 @@ name = "pypi"
 
 [packages]
 pygame = "==2.5.2"
+auto-py-to-exe = "*"
 
 [dev-packages]
 
