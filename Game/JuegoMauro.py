@@ -27,7 +27,6 @@ class Player(pygame.sprite.Sprite):
         self.surf.fill((255,255,0))
         self.rect = self.surf.get_rect()
         self.name = PlayerName.generar_nombre()
-
         self.pos = vec((10, 360))
         self.vel = vec(0,0)
         self.acc = vec(0,0)
@@ -181,6 +180,7 @@ while True:
             pygame.display.update()
             time.sleep(1)
             PlayerName.guardar_puntaje(P1.name, P1.score)
+            PlayerName.mensaje()
             pygame.quit()
             sys.exit()
  

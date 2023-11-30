@@ -34,24 +34,17 @@ class PlayerName():
 
         # Guardar los cambios en el archivo JSON
         with open(ARCHIVO_PUNTAJES, 'w') as archivo_json:
-            json.dump(mi_diccionario, archivo_json)
-    """
+            json.dump(mi_diccionario, archivo_json, indent=4)
+    
     def mensaje():
         import json
 
         try:
-        # Abrir el archivo JSON y cargar el diccionario
-            with open(MENSAJE, 'r') as archivo_json2:
+            with open(ARCHIVO_PUNTAJES, 'r') as archivo_json2:
                 tabla = json.load(archivo_json2)    
         except FileNotFoundError:
             tabla = {}
 
-        # Agregar elementos al diccionario
-        mi_diccionario[nombre] = puntaje
+        sort_scores = dict(sorted(tabla.items(), key=lambda x: x[1], reverse=True))
 
-        # Guardar los cambios en el archivo JSON
-        with open(MENSAJE, 'w') as archivo_json2:
-            json.dump(tabla, archivo_json2) 
-        
-        #print(f'Nombre : {nombre} | {puntaje}pts.')
-    """
+        print(sort_scores)
