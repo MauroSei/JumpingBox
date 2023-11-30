@@ -3,6 +3,7 @@ from pygame.locals import *
 import sys
 import random
 import time
+from datos import PlayerName
  
 pygame.init()
 vec = pygame.math.Vector2 #2 for two dimensional
@@ -25,7 +26,8 @@ class Player(pygame.sprite.Sprite):
         self.surf = pygame.Surface((30, 30))
         self.surf.fill((255,255,0))
         self.rect = self.surf.get_rect()
-   
+        self.name = PlayerName.generar_nombre()
+
         self.pos = vec((10, 360))
         self.vel = vec(0,0)
         self.acc = vec(0,0)
@@ -161,6 +163,7 @@ while True:
     P1.update()
     for event in pygame.event.get():
         if event.type == QUIT:
+            print(P1.name)
             pygame.quit()
             sys.exit()
         if event.type == pygame.KEYDOWN:    
@@ -177,6 +180,7 @@ while True:
             displaysurface.fill((255,0,0))
             pygame.display.update()
             time.sleep(1)
+            PlayerName.guardar_puntaje(P1.name, P1.score)
             pygame.quit()
             sys.exit()
  
@@ -199,3 +203,4 @@ while True:
  
     pygame.display.update()
     FramePerSec.tick(FPS)
+
