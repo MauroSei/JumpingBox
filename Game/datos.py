@@ -1,8 +1,9 @@
 import random
 import json
+import tkinter as tk
+import tkinter.font as tkFont
 
 ARCHIVO_PUNTAJES='puntaje.json'
-MENSAJE='mensaje.json'
 
 class PlayerName():
     
@@ -47,4 +48,22 @@ class PlayerName():
 
         sort_scores = dict(sorted(tabla.items(), key=lambda x: x[1], reverse=True))
 
-        print(sort_scores)
+        
+       # mensaje_de_pantalla=tk.Label(root,text=sort_scores,padx=20,pady=10)
+       # mensaje_de_pantalla.config(sort_scores)
+       # mensaje_de_pantalla.grid(row=1,column=0,sticky="ew")
+        from itertools import islice
+        #print(sort_scores)
+        with open(ARCHIVO_PUNTAJES, 'r') as archivo_json:
+            pts = json.load(archivo_json)
+            string = ''
+            veces = 1
+            for k,v in pts.items():
+                string += f"{k}: {v}pts\n"
+                veces+=1
+                if veces == 5:
+                    break
+
+            print('Tendria que salir: \n', string)
+            return str(string)
+

@@ -173,14 +173,25 @@ while True:
                 P1.cancel_jump()
 
     if P1.rect.top > HEIGHT:
+        #  game over
         for entity in all_sprites:
             entity.kill()
-            time.sleep(1)
-            displaysurface.fill((255,0,0))
-            pygame.display.update()
-            time.sleep(1)
+
+            #  se guarda el puntaje
             PlayerName.guardar_puntaje(P1.name, P1.score)
             PlayerName.mensaje()
+
+            time.sleep(1)
+            displaysurface.fill((255,0,0))
+
+            font = pygame.font.SysFont(None, 24)
+            img = font.render(PlayerName.mensaje(), True, (255,255,255))
+
+            displaysurface.blit(img, (20, 20))
+
+            pygame.display.update()
+            time.sleep(4)
+            
             pygame.quit()
             sys.exit()
  
