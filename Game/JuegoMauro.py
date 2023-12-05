@@ -17,7 +17,6 @@ FPS = 60
 FramePerSec = pygame.time.Clock()
  
 displaysurface = pygame.display.set_mode((WIDTH, HEIGHT))
-pygame.display.set_caption("Game")
  
 class Player(pygame.sprite.Sprite):
     def __init__(self):
@@ -133,6 +132,7 @@ def plat_gen():
         
 PT1 = platform()
 P1 = Player()
+pygame.display.set_caption(f"JumpingBox {P1.name}")
  
 PT1.surf = pygame.Surface((WIDTH, 20))
 PT1.surf.fill((255,0,0))
