@@ -185,9 +185,27 @@ while True:
             displaysurface.fill((255,0,0))
 
             font = pygame.font.SysFont(None, 24)
-            img = font.render(PlayerName.mensaje(), True, (255,255,255))
+            scores = PlayerName.mensaje()
 
-            displaysurface.blit(img, (20, 20))
+            img1 = font.render('GAME OVER', True, (255,255,255))
+            img2 = font.render('Top 5:', True, (255,255,255))
+
+            displaysurface.blit(img1, (20, 20))
+            displaysurface.blit(img2, (20, 40))
+            pos = 60
+            veces = 1
+            for k,v in PlayerName.mensaje().items():
+                txt = f"{k}: {v} pts"
+                imgx = font.render(txt, True, (255,255,255))
+                displaysurface.blit(imgx, (20, pos))
+                veces+=1
+                pos+=20
+                if veces == 5:
+                    break
+
+            #img3 = font.render(PlayerName.mensaje(), True, (255,255,255))
+
+            
 
             pygame.display.update()
             time.sleep(10)
