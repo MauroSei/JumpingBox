@@ -190,7 +190,7 @@ while True:
             displaysurface.blit(img, (20, 20))
 
             pygame.display.update()
-            time.sleep(4)
+            time.sleep(10)
             
             pygame.quit()
             sys.exit()

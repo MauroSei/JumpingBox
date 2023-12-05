@@ -52,18 +52,14 @@ class PlayerName():
        # mensaje_de_pantalla=tk.Label(root,text=sort_scores,padx=20,pady=10)
        # mensaje_de_pantalla.config(sort_scores)
        # mensaje_de_pantalla.grid(row=1,column=0,sticky="ew")
-        from itertools import islice
-        #print(sort_scores)
-        with open(ARCHIVO_PUNTAJES, 'r') as archivo_json:
-            pts = json.load(archivo_json)
-            string = ''
-            veces = 1
-            for k,v in pts.items():
-                string += f"{k}: {v}pts\n"
-                veces+=1
-                if veces == 5:
-                    break
+        string = 'Top 5: \n'
+        veces = 1
+        for k,v in sort_scores.items():
+            string += f"{k}: {v}pts\n"
+            veces+=1
+            if veces == 5:
+                break
 
-            print('Tendria que salir: \n', string)
-            return str(string)
+        #print('Tendria que salir: \n',string)
+        return str(string)
 
